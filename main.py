@@ -5,21 +5,21 @@
 import random
 
 class Die: 
-    def__init__(self, max_side=6):
+    def __init__(self, max_side=6):
         self.max_side = max_side
     def roll(self):
-        return.randint(1, self.max_side)
+        return random.randint(1, self.max_side)
 
 class DiceGame: 
     def __init__(self):
         self.die1 = Die()
         self.die2 = Die()
 
-    def evalulate_roll(self, total):
+    def evaluate_roll(self, total):
         if total == 7 or total == 11:
-            return "win"
+            return "Win"
         elif total == 2 or total == 3 or total == 12:
-            return "lose"
+            return "Lose"
         else:
             return "Roll Again" 
 
@@ -29,28 +29,28 @@ class DiceGame:
 
         total = roll1 + roll2
 
-        result = self.evalulate_roll(total)
+        result = self.evaluate_roll(total)
 
         return roll1, roll2, total, result 
     
 def main():
     game = DiceGame()
 
-    while true:
+    while True:
         print("\nDice Game simulator")
         print("1. Play a round")
         print("2. Exit")
 
         choice = input("Enter your choice.")
 
-        if choice == 1:
-            die1, die2, total, result = game.play_round
+        if choice == "1":
+            die1, die2, total, result = game.play_round()
 
             print("\nYou rolled", die1, "and", die2)
             print("Total:", total)
             print("Result:", result)
 
-        elif choice == 2:
+        elif choice == "2":
             print("Thanks for playing!")
             break 
         
